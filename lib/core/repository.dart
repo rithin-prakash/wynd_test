@@ -9,13 +9,13 @@ import 'package:wynd_test/models/post.dart';
 import 'package:wynd_test/models/post_detail.dart';
 
 class Repository {
-  static final Repository _instance = Repository._internal();
+  static final Repository instance = Repository._internal();
 
-  final client = http.Client();
+  final _client = http.Client();
 
-  factory Repository() {
-    return _instance;
-  }
+  // factory Repository() {
+  //   return _instance;
+  // }
 
   Repository._internal();
 
@@ -23,12 +23,12 @@ class Repository {
     Response response;
 
     try {
-      response = await client
-          .get(Uri.https(ApiConstants.baseUrl + ApiConstants.postList));
+      response = await _client
+          .get(Uri.parse(ApiConstants.baseUrl + ApiConstants.postList));
 
       if (response.statusCode == 200) {
         final jd = jsonDecode(response.body);
-        return jd.map((e) => Post.fromJson(e)).toList();
+        return jd.map<Post>((e) => Post.fromJson(e)).toList();
       } else {
         throw Exception('Unable to load posts');
       }
@@ -41,7 +41,7 @@ class Repository {
     Response response;
 
     try {
-      response = await client.get(Uri.https(
+      response = await _client.get(Uri.https(
           '${ApiConstants.baseUrl}${ApiConstants.postDetail}$postId'));
 
       if (response.statusCode == 200) {
@@ -59,7 +59,7 @@ class Repository {
     Response response;
 
     try {
-      response = await client.get(Uri.https(
+      response = await _client.get(Uri.https(
           '${ApiConstants.baseUrl}${ApiConstants.postDetail}$postId${ApiConstants.postComment}'));
 
       if (response.statusCode == 200) {
