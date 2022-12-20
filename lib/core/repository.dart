@@ -64,7 +64,7 @@ class Repository {
 
       if (response.statusCode == 200) {
         final jd = jsonDecode(response.body);
-        return jd.map((e) => Comment.fromJson(e)).toList();
+        return jd.map<Comment>((e) => Comment.fromJson(e)).toList();
       } else {
         throw Exception('Unable to load posts');
       }
