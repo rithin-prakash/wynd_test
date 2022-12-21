@@ -41,7 +41,7 @@ class Repository {
     Response response;
 
     try {
-      response = await _client.get(Uri.https(
+      response = await _client.get(Uri.parse(
           '${ApiConstants.baseUrl}${ApiConstants.postDetail}$postId'));
 
       if (response.statusCode == 200) {
@@ -59,7 +59,7 @@ class Repository {
     Response response;
 
     try {
-      response = await _client.get(Uri.https(
+      response = await _client.get(Uri.parse(
           '${ApiConstants.baseUrl}${ApiConstants.postDetail}$postId${ApiConstants.postComment}'));
 
       if (response.statusCode == 200) {
