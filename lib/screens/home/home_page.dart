@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:wynd_test/blocs/post_bloc/post_cubit.dart';
 import 'package:wynd_test/blocs/post_bloc/post_cubit_state.dart';
+import 'package:wynd_test/constants/ui_contants.dart';
 import 'package:wynd_test/screens/home/widgets/post_container.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Posts'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(commonPadding),
         child:
             BlocBuilder<PostCubit, PostCubitState>(builder: (context, state) {
           if (state is PostListLoading) {

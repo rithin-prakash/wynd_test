@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:wynd_test/blocs/comment_bloc/comment_bloc.dart';
 import 'package:wynd_test/blocs/comment_bloc/comment_state.dart';
+import 'package:wynd_test/constants/ui_contants.dart';
 import 'package:wynd_test/screens/post/widgets/comment_container.dart';
 
 class CommentListContainer extends StatelessWidget {
@@ -12,7 +13,7 @@ class CommentListContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 12),
+      margin: const EdgeInsets.only(top: commonPadding),
       child: BlocBuilder<CommentCubit, CommentState>(builder: (_, state) {
         if (state is CommentLoading) {
           return Column(

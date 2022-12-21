@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wynd_test/blocs/comment_bloc/comment_bloc.dart';
 import 'package:wynd_test/blocs/post_detail_bloc/post_detail_cubit.dart';
 import 'package:wynd_test/blocs/post_detail_bloc/post_detail_cubit_state.dart';
+import 'package:wynd_test/constants/ui_contants.dart';
 import 'package:wynd_test/models/post.dart';
 import 'package:wynd_test/screens/post/widgets/comment_list_container.dart';
 import 'package:wynd_test/screens/post/widgets/post_detail_container.dart';
@@ -34,7 +35,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
         title: const Text('Post Detail'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(commonPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,

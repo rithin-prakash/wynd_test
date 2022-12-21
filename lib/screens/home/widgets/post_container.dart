@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wynd_test/constants/ui_contants.dart';
 
 import 'package:wynd_test/models/post.dart';
 import 'package:wynd_test/screens/post/post_detail_page.dart';
@@ -14,8 +15,8 @@ class PostContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.all(commonPadding),
+      padding: const EdgeInsets.all(commonMargin),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         color: Colors.white,
